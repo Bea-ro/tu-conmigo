@@ -1,0 +1,27 @@
+<!-- en el submit que se elimine el animal del listado pero no hace falta persistir -->
+<form *ngIf="userForm" [formGroup]="userForm" (submit)="onSumbit()">
+  <label for="name">Nombre:</label>
+  <input type="text" />
+
+  <label for="apellidos">Apellidos:</label>
+  <input type="text" />
+
+  <label for="dni">DNI:</label>
+  <input type="text" />
+
+  <label for="edad">Edad:</label>
+  <input type="number" />
+
+  <label for="tiene-animales">Tengo más animales en casa</label>
+  <input type="checkbox" />
+
+  <label for="info-animales"></label>
+  <input type="text" />
+</form>
+
+<!-- esto se hace por id así que la ruta de adpotando-tu-animal incluye id -->
+<div>
+  <img src="" alt="" />
+  <p>Edad animal</p>
+  <p>Descripcion animal</p>
+</div>
