@@ -24,11 +24,11 @@ export class AdoptFormComponent implements OnInit {
   public ngOnInit() {
     this.userForm = new FormGroup<User>(
       {
-        nombre: new FormControl('', {
+        name: new FormControl('', {
           nonNullable: true,
           validators: [Validators.required],
         }),
-        apellidos: new FormControl('', {
+        surname: new FormControl('', {
           nonNullable: true,
           validators: [Validators.required],
         }),
@@ -39,26 +39,19 @@ export class AdoptFormComponent implements OnInit {
           validators: [Validators.required],
         }),
         //comprobar edad menor a 100
-        edad: new FormControl('', {
+        age: new FormControl(null, {
           nonNullable: true,
           validators: [Validators.required],
         }),
-        // email: new FormControl('', {
-        //   nonNullable: true,
-        //   validators: [Validators.required, Validators.email],
-        // }),
-        // email: new FormControl('', {
-        //   nonNullable: true,
-        //   validators: [Validators.required, emailValidator()],
-        // }),
-        // password: new FormControl('', {
-        //   nonNullable: true,
-        //   validators: [Validators.required, Validators.minLength(6)],
-        // }),
-        // repeatPassword: new FormControl('', {
-        //   nonNullable: true,
-        //   validators: [Validators.required, Validators.minLength(6)],
-        // }),
+        hasAnimals: new FormControl(false, {
+          nonNullable: true,
+          validators: [Validators.required],
+        }),
+        infoAnimals: new FormControl('', {
+          nonNullable: true,
+        }),
+
+        //   Validators.minLength(6)
       }
       // comparePasswords as ValidatorFn
     );

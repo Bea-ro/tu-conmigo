@@ -1,4 +1,2 @@
-<p>animal works!</p>
-<p></p>
-<img />
-<!-- onclic en la imagen lleva al form -->
+<p>{{ animal.name }}</p>
+<img [src]="animal.image" (click)="goToForm()" />
