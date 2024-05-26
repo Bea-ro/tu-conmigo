@@ -1,1 +1,24 @@
-<p>header works!</p>
+<nav>
+  <a
+    routerLink=""
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Tú conmigo</a
+  >
+
+  <a
+    routerLink="/animales-para-adoptar"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Animales</a
+  >
+
+  <!-- <a
+    [routerLink]="['/adoptando-tu-animal', 1]"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Adopta</a
+  > -->
+</nav>
+
+<button (click)="navigateToAnimal()">Adopta</button>

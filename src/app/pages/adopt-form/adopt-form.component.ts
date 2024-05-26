@@ -4,10 +4,11 @@ import {
   ReactiveFormsModule,
   FormControl,
   FormGroup,
-  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { User } from '../../models/user';
+import { dnilValidator } from './customValidarors';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-adopt-form',
@@ -16,52 +17,53 @@ import { User } from '../../models/user';
   templateUrl: './adopt-form.component.html',
   styleUrl: './adopt-form.component.css',
 })
-
-// Utilizar valueChanges para escuchar los cambios en el valor del checkbox y añadir un nuevo formControl al formGroup de forma dinámica.
 export class AdoptFormComponent implements OnInit {
   public userForm?: FormGroup<User>;
 
   public ngOnInit() {
-    this.userForm = new FormGroup<User>(
-      {
-        name: new FormControl('', {
-          nonNullable: true,
-          validators: [Validators.required],
-        }),
-        surname: new FormControl('', {
-          nonNullable: true,
-          validators: [Validators.required],
-        }),
+    this.userForm = new FormGroup<User>({
+      name: new FormControl('', {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      surname: new FormControl('', {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      dni: new FormControl('', {
+        nonNullable: true,
+        validators: [Validators.required, dnilValidator()],
+      }),
+      age: new FormControl(null, {
+        nonNullable: true,
+        validators: [
+          Validators.required,
+          Validators.max(100),
+          Validators.min(18),
+        ],
+      }),
+      hasAnimals: new FormControl(false, {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      infoAnimals: new FormControl('', {
+        nonNullable: true,
+      }),
+    });
 
-        //         validador personalizado que compruebe que el valor introducido es un DNI español válido.
-        dni: new FormControl('', {
-          nonNullable: true,
-          validators: [Validators.required],
-        }),
-        //comprobar edad menor a 100
-        age: new FormControl(null, {
-          nonNullable: true,
-          validators: [Validators.required],
-        }),
-        hasAnimals: new FormControl(false, {
-          nonNullable: true,
-          validators: [Validators.required],
-        }),
-        infoAnimals: new FormControl('', {
-          nonNullable: true,
-        }),
-
-        //   Validators.minLength(6)
-      }
-      // comparePasswords as ValidatorFn
-    );
-
-    // this.userForm
-    //   .get('email')
-    //   ?.valueChanges.subscribe((value) => console.log(value));
+    this.userForm.get('hasAnimals')?.valueChanges.subscribe((value) => {
+      console.log(value);
+      console.log(this.userForm);
+      //   this.userForm.push({
+      //     infoAnimals: new FormControl('', {
+      //        nonNullable: true,
+      //      }),
+      //    })
+    });
   }
 
   public onSumbit() {
     console.log(this.userForm?.value);
+    //eliminar del listado el animal. coger el id y el array de animales y .find y .remove
   }
 }
