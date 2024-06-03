@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: Inter;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: #0d0c0c;
+}
+
+a {
+  text-decoration: none;
+}
+li {
+  list-style-type: none;
+}
+
+main {
+  margin-left: 18px;
+}

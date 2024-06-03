@@ -1,0 +1,20 @@
+.home-image {
+  width: 100%;
+  margin-left: -18px;
+}
+
+.home-title {
+  margin-top: 46px;
+  color: #3636d4;
+  font-size: 32px;
+  font-weight: 600;
+}
+.home-description {
+  width: 60%;
+  font-size: 24px;
+}
+
+.oldest-title {
+  font-size: 24px;
+  font-weight: 700;
+}
