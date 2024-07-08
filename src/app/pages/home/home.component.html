@@ -7,8 +7,13 @@
 <p class="home-description">
   Tú conmigo es la protectora de animales que trabaja para mejorar vidas
 </p>
-<p class="oldest-title">Los mayores de la casa</p>
-<!-- aquí solo los 4 oldest -->
+<h2 class="title">Los mayores de la casa</h2>
+<div>
+  <app-animal
+    *ngFor="let animal of oldestAnimals"
+    [animal]="animal"
+  ></app-animal>
+</div>
 <ul>
   <li></li>
 </ul>

@@ -13,18 +13,16 @@
   <input type="number" id="age" formControlName="age" />
 
   <label for="has-animals">Tengo más animales en casa</label>
-  <input type="checkbox" id="has-animales" formControlName="has-animales" />
+  <input type="checkbox" id="has-animals" formControlName="hasAnimals" />
 
   <!-- mostrar solo si tiene -->
   <label for="info-animals"></label>
-  <input type="text" id="info-animals" formControlName="info-animals" />
+  <input type="text" id="info-animals" formControlName="infoAnimals" />
 
   <button type="submit">Enviar</button>
 </form>
 
-<!-- esto se hace por id así que la ruta de adpotando-tu-animal incluye id -->
+<!-- esto se hace por id-->
 <div>
-  <img src="" alt="" />
-  <p>Edad animal</p>
-  <p>Descripcion animal</p>
+  <app-animal [animal]="animal"></app-animal>
 </div>

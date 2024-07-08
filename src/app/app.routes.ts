@@ -16,7 +16,7 @@ export const routes: Routes = [
     title: 'Animales',
   },
   {
-    path: 'adoptando-tu-animal',
+    path: 'adoptando-tu-animal/:id',
     loadComponent: () =>
       import('./pages/adopt-form/adopt-form.component').then(
         (c) => c.AdoptFormComponent

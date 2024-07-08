@@ -1,26 +1,24 @@
 import { Component, Input } from '@angular/core';
-import { ANIMALS } from '../../../services/animals-data';
 import { Animal } from '../../../models/animal';
+import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-animal',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterLink],
   templateUrl: './animal.component.html',
   styleUrl: './animal.component.css',
 })
 export class AnimalComponent {
-  @Input() public animal: Animal = {
-    id: 0,
-    name: '',
-    description: '',
-    age: 0,
-    type: '',
-    image: '',
-  };
-  //mandar el animal desde el padre
+  @Input() animal?: Animal;
+
+  constructor(private router: Router) {}
 
   public goToForm(): void {
-    //navegar al formulario
+    if (!this.animal) {
+      return;
+    }
+    this.router.navigate(['/adoptando-tu-animal', this.animal.id]);
   }
 }

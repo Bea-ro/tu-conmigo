@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   ReactiveFormsModule,
   FormControl,
@@ -8,17 +8,27 @@ import {
 } from '@angular/forms';
 import { User } from '../../models/user';
 import { dnilValidator } from './customValidarors';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { AnimalComponent } from '../../components/shared/animal/animal.component';
+import { Animal } from '../../models/animal';
+import { AnimalsService } from '../../animals.service';
 
 @Component({
   selector: 'app-adopt-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, AnimalComponent, RouterLink],
   templateUrl: './adopt-form.component.html',
   styleUrl: './adopt-form.component.css',
 })
 export class AdoptFormComponent implements OnInit {
   public userForm?: FormGroup<User>;
+  public animal?: Animal;
+  @Input() id?: number;
+
+  constructor(
+    private AnimalsService: AnimalsService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   public ngOnInit() {
     this.userForm = new FormGroup<User>({
@@ -59,6 +69,16 @@ export class AdoptFormComponent implements OnInit {
       //        nonNullable: true,
       //      }),
       //    })
+    });
+  }
+
+  public listenRouteParamsChanges() {
+    this.activatedRoute.params.subscribe((params) => {
+      const animalId = params['id'];
+      if (!animalId) {
+        return;
+      }
+      this.animal = this.AnimalsService.getAnimalById(animalId);
     });
   }
 
