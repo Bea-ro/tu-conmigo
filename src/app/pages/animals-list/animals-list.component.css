@@ -1,0 +1,10 @@
+.animals-list-container {
+  padding-top: 20px;
+}
+
+.animals-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding: 20px 0;
+}

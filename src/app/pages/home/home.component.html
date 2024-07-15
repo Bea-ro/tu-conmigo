@@ -3,17 +3,17 @@
   src="https://images.unsplash.com/photo-1591079157227-f03125fcb8bb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njh8fGFuaW1hbCUyMHNoZWx0ZXJ8ZW58MHx8MHx8fDA="
   alt="perro-en-adopcion"
 />
-<h1 class="home-title">Elígelo y mejora su vida</h1>
-<p class="home-description">
-  Tú conmigo es la protectora de animales que trabaja para mejorar vidas
-</p>
-<h2 class="title">Los mayores de la casa</h2>
-<div>
-  <app-animal
-    *ngFor="let animal of oldestAnimals"
-    [animal]="animal"
-  ></app-animal>
-</div>
-<ul>
-  <li></li>
-</ul>
+<section class="home-content-without-banner">
+  <h1 class="home-title">Elígelo y mejora su vida</h1>
+  <p class="home-description">
+    Tú conmigo es la protectora de animales que trabaja para mejorar vidas
+  </p>
+  <h2 class="title">Los mayores de la casa</h2>
+  <div>
+    <ul class="animals-list">
+      <li *ngFor="let animal of oldestAnimals">
+        <app-animal [animal]="animal"></app-animal>
+      </li>
+    </ul>
+  </div>
+</section>

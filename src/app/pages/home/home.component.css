@@ -2,6 +2,10 @@
   width: 100%;
 }
 
+.home-content-without-banner {
+  margin-left: 18px;
+}
+
 .home-title {
   margin: 46px 0 38px 0;
   color: #3636d4;
@@ -12,4 +16,11 @@
   width: 60%;
   font-size: 24px;
   padding-bottom: 54px;
+}
+
+.animals-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding: 20px 0;
 }

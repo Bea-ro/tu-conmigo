@@ -1,4 +1,8 @@
-<h2>Nuestros animales</h2>
-<ul *ngFor="let animal of animals">
-  <li><app-animal [animal]="animal"></app-animal></li>
-</ul>
+<div class="animals-list-container">
+  <h2>Nuestros animales</h2>
+  <ul class="animals-list">
+    <li *ngFor="let animal of animals">
+      <app-animal [animal]="animal"></app-animal>
+    </li>
+  </ul>
+</div>
