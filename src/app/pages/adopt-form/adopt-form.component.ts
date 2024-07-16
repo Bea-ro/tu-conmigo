@@ -23,7 +23,6 @@ import { AnimalsService } from '../../animals.service';
 export class AdoptFormComponent implements OnInit {
   public userForm?: FormGroup<User>;
   public animal?: Animal;
-  @Input() id?: number;
 
   constructor(
     private AnimalsService: AnimalsService,
@@ -61,25 +60,12 @@ export class AdoptFormComponent implements OnInit {
       }),
     });
 
-    this.userForm.get('hasAnimals')?.valueChanges.subscribe((value) => {
-      console.log(value);
-      console.log(this.userForm);
-      //   this.userForm.push({
-      //     infoAnimals: new FormControl('', {
-      //        nonNullable: true,
-      //      }),
-      //    })
-    });
-  }
+    this.userForm
+      .get('hasAnimals')
+      ?.valueChanges.subscribe((value) => console.log(value));
 
-  public listenRouteParamsChanges() {
-    this.activatedRoute.params.subscribe((params) => {
-      const animalId = params['id'];
-      if (!animalId) {
-        return;
-      }
-      this.animal = this.AnimalsService.getAnimalById(animalId);
-    });
+    const animalId = this.activatedRoute.snapshot.params['id'];
+    this.animal = this.AnimalsService.getAnimalById(animalId);
   }
 
   public onSumbit() {

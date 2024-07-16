@@ -11,7 +11,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 export class HeaderComponent {
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
-      console.log(event);
+      //console.log(event);
     });
   }
 

@@ -16,8 +16,9 @@ export class AnimalsService {
     return orderedAnimalsByAge.slice(0, 4);
   }
 
-  public getAnimalById(id: number): Animal | undefined {
-    return this.animals.find((animal) => animal.id === id);
+  public getAnimalById(id: string): Animal | undefined {
+    console.log(this.animals.find((animal) => animal.id === parseInt(id)));
+    return this.animals.find((animal) => animal.id === parseInt(id));
   }
 
   public adoptAnimal(animalId: number): void {
