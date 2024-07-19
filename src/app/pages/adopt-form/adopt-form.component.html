@@ -1,28 +1,60 @@
 <!-- en el submit que se elimine el animal del listado pero no hace falta persistir -->
-<form *ngIf="userForm" [formGroup]="userForm" (submit)="onSumbit()">
-  <label for="name">Nombre:</label>
-  <input type="text" id="name" formControlName="name" />
+<form
+  *ngIf="userForm"
+  [formGroup]="userForm"
+  (submit)="onSumbit()"
+  class="form-container"
+>
+  <div class="inputs-container">
+    <fieldset>
+      <label for="name">Nombre</label>
+      <input type="text" id="name" formControlName="name" class="text-input" />
+    </fieldset>
+    <fieldset>
+      <label for="surname">Apellidos</label>
+      <input
+        type="text"
+        id="surname"
+        formControlName="surname"
+        class="text-input"
+      />
+    </fieldset>
+    <fieldset>
+      <label for="dni">DNI</label>
+      <input type="text" id="dni" formControlName="dni" class="text-input" />
+    </fieldset>
+    <fieldset>
+      <label for="age">Edad</label>
+      <input type="number" id="age" formControlName="age" class="text-input" />
+    </fieldset>
+  </div>
 
-  <label for="surname">Apellidos:</label>
-  <input type="text" id="surname" formControlName="surname" />
+  <fieldset class="checkbox-field">
+    <input
+      type="checkbox"
+      id="has-animals"
+      formControlName="hasAnimals"
+      class="checkbox-input"
+    />
+    <label for="has-animals" class="has-animals"
+      >Tengo más animales en casa</label
+    >
+    <!-- mostrar solo si tiene -->
+    <input
+      *ngIf="hasAnimals"
+      type="text"
+      id="info-animals"
+      formControlName="infoAnimals"
+    />
+  </fieldset>
 
-  <label for="dni">DNI:</label>
-  <input type="text" id="dni" formControlName="dni" />
-
-  <label for="age">Edad:</label>
-  <input type="number" id="age" formControlName="age" />
-
-  <label for="has-animals">Tengo más animales en casa</label>
-  <input type="checkbox" id="has-animals" formControlName="hasAnimals" />
-
-  <!-- mostrar solo si tiene -->
-  <label for="info-animals"></label>
-  <input type="text" id="info-animals" formControlName="infoAnimals" />
-
-  <button type="submit">Enviar</button>
+  <button type="submit" class="submit-button">Enviar</button>
 </form>
 
-<!-- esto se hace por id-->
 <div>
-  <app-animal [animal]="animal"></app-animal>
+  <app-animal
+    [animal]="animal"
+    [hideElementsAnimalCard]="true"
+    adoptPageStyle="adopt-page-style"
+  ></app-animal>
 </div>

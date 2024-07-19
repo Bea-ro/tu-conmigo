@@ -1,10 +1,9 @@
 # TuConmigo
 
-Rutas deben implementarse aplicando lazy load, dudo si la home también
-Crear un servicio para recuperar los animales GET
+Pte footer y que funcione form
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+## Confirmar
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Rutas aplicando lazy load: home no, no?
+Models y services dentro de app y assets fuera
+Despliegue con vercel

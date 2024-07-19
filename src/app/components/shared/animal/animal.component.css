@@ -3,6 +3,11 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 36px;
+  background-color: #ffffff;
+}
+
+#animal-card-no-border {
+  border: none;
 }
 
 .animal-image {
@@ -26,14 +31,19 @@
 }
 
 .animal-type-age {
-  margin: 0 20px;
+  margin: 0 20px 20px 20px;
   padding: 18px 0;
-  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   font-size: 16px;
   border-top: 1px solid #9f9494;
   border-bottom: 1px solid #9f9494;
+}
+
+.adopt-page-style {
+  margin: 0 0 0 20px;
+  padding: 0;
+  border: none;
 }
 
 .age-title {

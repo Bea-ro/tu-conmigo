@@ -12,6 +12,8 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class AnimalComponent {
   @Input() animal?: Animal;
+  @Input() hideElementsAnimalCard?: boolean = false;
+  @Input() adoptPageStyle?: string | null = null;
 
   constructor(private router: Router) {}
 

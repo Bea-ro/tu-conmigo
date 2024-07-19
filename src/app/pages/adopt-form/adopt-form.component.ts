@@ -23,6 +23,7 @@ import { AnimalsService } from '../../animals.service';
 export class AdoptFormComponent implements OnInit {
   public userForm?: FormGroup<User>;
   public animal?: Animal;
+  public hasAnimals?: boolean = false;
 
   constructor(
     private AnimalsService: AnimalsService,
