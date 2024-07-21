@@ -8,7 +8,19 @@
   <div class="inputs-container">
     <fieldset>
       <label for="name">Nombre</label>
-      <input type="text" id="name" formControlName="name" class="text-input" />
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        class="text-input"
+        placeholder="Escribe tu nombre"
+      />
+      <p
+        *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched"
+        class="error-message"
+      >
+        Este campo es obligatorio
+      </p>
     </fieldset>
     <fieldset>
       <label for="surname">Apellidos</label>
@@ -17,15 +29,58 @@
         id="surname"
         formControlName="surname"
         class="text-input"
+        placeholder="Escribe tus apellidos"
       />
+      <p
+        *ngIf="
+          userForm.get('surname')?.invalid && userForm.get('surname')?.touched
+        "
+        class="error-message"
+      >
+        Este campo es obligatorio
+      </p>
     </fieldset>
     <fieldset>
       <label for="dni">DNI</label>
-      <input type="text" id="dni" formControlName="dni" class="text-input" />
+      <input
+        type="text"
+        id="dni"
+        formControlName="dni"
+        class="text-input"
+        placeholder="Introduce tu DNI"
+      />
+      <p
+        *ngIf="userForm.get('dni')?.errors?.['invalidDni']"
+        class="error-message"
+      >
+        El formato del DNI no es válido
+      </p>
     </fieldset>
     <fieldset>
       <label for="age">Edad</label>
-      <input type="number" id="age" formControlName="age" class="text-input" />
+      <input
+        type="number"
+        id="age"
+        formControlName="age"
+        class="text-input"
+        c
+      />
+      <p
+        *ngIf="!userForm.get('age')?.value && userForm.get('age')?.touched"
+        class="error-message"
+      >
+        Este campo es obligatorio
+      </p>
+      <p
+        *ngIf="
+          userForm.get('age')?.value &&
+          userForm.get('age')?.invalid &&
+          userForm.get('age')?.touched
+        "
+        class="error-message"
+      >
+        Debes ser mayor de edad para poder adopar un animal.
+      </p>
     </fieldset>
   </div>
 
@@ -35,20 +90,24 @@
       id="has-animals"
       formControlName="hasAnimals"
       class="checkbox-input"
+      (click)="hasAnimalsToggle()"
     />
     <label for="has-animals" class="has-animals"
       >Tengo más animales en casa</label
     >
-    <!-- mostrar solo si tiene -->
-    <input
-      *ngIf="hasAnimals"
-      type="text"
-      id="info-animals"
-      formControlName="infoAnimals"
-    />
+    <div *ngIf="hasAnimals" class="animals-info">
+      <p>Información de tus animales</p>
+      <textarea
+        id="info-animals"
+        formControlName="infoAnimals"
+        class="info-animals-input"
+        placeholder="Háblanos del resto de tus animales para que sepamos si la adopción puede llevarse a cabo."
+      >
+      </textarea>
+    </div>
   </fieldset>
 
-  <button type="submit" class="submit-button">Enviar</button>
+  <button type="submit" [ngClass]="submitButtonStyle">Enviar</button>
 </form>
 
 <div>

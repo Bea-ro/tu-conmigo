@@ -21,8 +21,10 @@ export class AnimalsService {
     return this.animals.find((animal) => animal.id === parseInt(id));
   }
 
-  public adoptAnimal(animalId: number): void {
-    const animal = this.animals.find((animal) => animal.id === animalId);
+  public adoptAnimal(animalId: string): void {
+    const animal = this.animals.find(
+      (animal) => animal.id === parseInt(animalId)
+    );
     if (animal) {
       let index = this.animals.indexOf(animal);
       if (index !== -1) {

@@ -1,9 +1,8 @@
-<div *ngIf="animal" class="animal-card" id="animal-card-no-border">
+<div *ngIf="animal" [ngClass]="animalStyle">
   <img [src]="animal.image" [alt]="animal.name" class="animal-image" />
   <p class="animal-name">{{ animal.name }}</p>
   <p class="animal-description">{{ animal.description }}</p>
   <div class="animal-type-age" [ngClass]="adoptPageStyle">
-    <!-- este elemento tiene un estilo en home y otro en adopta -->
     <p *ngIf="!hideElementsAnimalCard" class="animal-type">{{ animal.type }}</p>
     <p class="animal-age">
       <span class="age-title">Edad:</span>{{ animal.age }} años

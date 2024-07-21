@@ -14,6 +14,7 @@ export class AnimalComponent {
   @Input() animal?: Animal;
   @Input() hideElementsAnimalCard?: boolean = false;
   @Input() adoptPageStyle?: string | null = null;
+  public animalStyle: string = '';
 
   constructor(private router: Router) {}
 
@@ -22,5 +23,11 @@ export class AnimalComponent {
       return;
     }
     this.router.navigate(['/adoptando-tu-animal', this.animal.id]);
+  }
+
+  public ngOnInit() {
+    this.router.url === '/'
+      ? (this.animalStyle = 'home-animal-style')
+      : (this.animalStyle = 'form-animal-style');
   }
 }

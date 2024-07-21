@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   ReactiveFormsModule,
   FormControl,
@@ -24,6 +24,8 @@ export class AdoptFormComponent implements OnInit {
   public userForm?: FormGroup<User>;
   public animal?: Animal;
   public hasAnimals?: boolean = false;
+  public animalId: string = '';
+  public submitButtonStyle: string = 'unable-button';
 
   constructor(
     private AnimalsService: AnimalsService,
@@ -65,12 +67,20 @@ export class AdoptFormComponent implements OnInit {
       .get('hasAnimals')
       ?.valueChanges.subscribe((value) => console.log(value));
 
-    const animalId = this.activatedRoute.snapshot.params['id'];
-    this.animal = this.AnimalsService.getAnimalById(animalId);
+    this.animalId = this.activatedRoute.snapshot.params['id'];
+    this.animal = this.AnimalsService.getAnimalById(this.animalId);
+
+    console.log(this.userForm.invalid);
+    //this.userForm.touched && this.userForm.invalid && this.submitButtonStyle = 'unable-button'
+    //this.userForm.touched && !this.userForm.invalid && this.submitButtonStyle = 'able-button'
+  }
+
+  public hasAnimalsToggle() {
+    this.hasAnimals = !this.hasAnimals;
   }
 
   public onSumbit() {
-    console.log(this.userForm?.value);
-    //eliminar del listado el animal. coger el id y el array de animales y .find y .remove
+    this.AnimalsService.adoptAnimal(this.animalId);
+    //limpiar formulario y poner mensaje de hemos recibido tu mensaje y vamos a valorar tu solicitud, recibirás respuesta...
   }
 }

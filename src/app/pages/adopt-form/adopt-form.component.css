@@ -16,12 +16,19 @@
 .inputs-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 
 fieldset {
+  margin: 0;
+  padding: 0;
   font-size: 14px;
   display: flex;
   flex-direction: column;
+}
+
+.error-message {
+  color: #b61717;
 }
 
 input,
@@ -38,6 +45,7 @@ label {
 
 .checkbox-field {
   display: inline;
+  padding: 28px 0;
 }
 
 .checkbox-input {
@@ -48,7 +56,24 @@ label {
   padding: 20px 0;
 }
 
-.submit-button {
+.animals-info {
+  padding-top: 20px;
+}
+
+.info-animals-input {
+  width: 50%;
+  border: 1px solid #464444;
+  padding: 0.5rem;
+  margin-top: 10px;
+}
+
+.able-button {
+  margin-top: 20px;
+  background-color: #3636d4;
+  align-self: flex-start;
+}
+
+.unable-button {
   margin-top: 20px;
   background-color: #9f9494;
   align-self: flex-start;
