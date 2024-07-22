@@ -25,7 +25,8 @@ export class AdoptFormComponent implements OnInit {
   public animal?: Animal;
   public hasAnimals?: boolean = false;
   public animalId: string = '';
-  public submitButtonStyle: string = 'unable-button';
+  public submitButtonStyle: string = 'disabled-button';
+  public isDisabled: boolean = true;
 
   constructor(
     private AnimalsService: AnimalsService,
@@ -63,16 +64,18 @@ export class AdoptFormComponent implements OnInit {
       }),
     });
 
-    this.userForm
-      .get('hasAnimals')
-      ?.valueChanges.subscribe((value) => console.log(value));
+    this.userForm?.valueChanges.subscribe((value) => {
+      console.log(this.userForm?.invalid, this.isDisabled);
+      if (this.userForm?.invalid) {
+        this.submitButtonStyle = 'disabled-button';
+      } else {
+        this.submitButtonStyle = 'able-button';
+        this.isDisabled = false;
+      }
+    });
 
     this.animalId = this.activatedRoute.snapshot.params['id'];
     this.animal = this.AnimalsService.getAnimalById(this.animalId);
-
-    console.log(this.userForm.invalid);
-    //this.userForm.touched && this.userForm.invalid && this.submitButtonStyle = 'unable-button'
-    //this.userForm.touched && !this.userForm.invalid && this.submitButtonStyle = 'able-button'
   }
 
   public hasAnimalsToggle() {

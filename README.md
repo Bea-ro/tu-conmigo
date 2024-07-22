@@ -1,6 +1,6 @@
 # TuConmigo
 
-Pte footer y que funcione form
+Pte footer
 
 ## Confirmar
 

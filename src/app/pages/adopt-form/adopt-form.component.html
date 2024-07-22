@@ -107,7 +107,9 @@
     </div>
   </fieldset>
 
-  <button type="submit" [ngClass]="submitButtonStyle">Enviar</button>
+  <button [disabled]="isDisabled" type="submit" [ngClass]="submitButtonStyle">
+    Enviar
+  </button>
 </form>
 
 <div>

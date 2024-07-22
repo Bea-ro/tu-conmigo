@@ -73,7 +73,7 @@ label {
   align-self: flex-start;
 }
 
-.unable-button {
+.disabled-button {
   margin-top: 20px;
   background-color: #9f9494;
   align-self: flex-start;
