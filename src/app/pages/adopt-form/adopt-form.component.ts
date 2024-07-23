@@ -27,6 +27,7 @@ export class AdoptFormComponent implements OnInit {
   public animalId: string = '';
   public submitButtonStyle: string = 'disabled-button';
   public isDisabled: boolean = true;
+  public isSubmitted: boolean = false;
 
   constructor(
     private AnimalsService: AnimalsService,
@@ -59,13 +60,23 @@ export class AdoptFormComponent implements OnInit {
         nonNullable: true,
         validators: [Validators.required],
       }),
-      infoAnimals: new FormControl('', {
-        nonNullable: true,
-      }),
+    });
+
+    this.userForm.get('hasAnimals')?.valueChanges.subscribe((value) => {
+      if (value) {
+        this.userForm?.addControl(
+          'infoAnimals',
+          new FormControl('', {
+            nonNullable: true,
+            validators: [Validators.required],
+          })
+        );
+      } else {
+        this.userForm?.removeControl('infoAnimals');
+      }
     });
 
     this.userForm?.valueChanges.subscribe((value) => {
-      console.log(this.userForm?.invalid, this.isDisabled);
       if (this.userForm?.invalid) {
         this.submitButtonStyle = 'disabled-button';
       } else {
@@ -84,6 +95,6 @@ export class AdoptFormComponent implements OnInit {
 
   public onSumbit() {
     this.AnimalsService.adoptAnimal(this.animalId);
-    //limpiar formulario y poner mensaje de hemos recibido tu mensaje y vamos a valorar tu solicitud, recibirás respuesta...
+    this.isSubmitted = true;
   }
 }

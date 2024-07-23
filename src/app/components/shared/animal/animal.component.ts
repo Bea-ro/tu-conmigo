@@ -26,7 +26,7 @@ export class AnimalComponent {
   }
 
   public ngOnInit() {
-    this.router.url === '/'
+    this.router.url === '/' || this.router.url === '/animales-para-adoptar'
       ? (this.animalStyle = 'home-animal-style')
       : (this.animalStyle = 'form-animal-style');
   }
