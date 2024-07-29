@@ -9,13 +9,9 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  constructor(private router: Router) {
-    this.router.events.subscribe((event) => {
-      //console.log(event);
-    });
-  }
+  constructor(private router: Router) {}
 
-  public navigateToAnimal() {
-    this.router.navigate(['/adoptando-tu-animal']);
-  }
+  // public navigateToAnimal() {
+  //   this.router.navigate(['/adoptando-tu-animal']);
+  // }
 }

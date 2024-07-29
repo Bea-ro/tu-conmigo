@@ -1,5 +1,7 @@
 <div *ngIf="animal" [ngClass]="animalStyle">
-  <img [src]="animal.image" [alt]="animal.name" class="animal-image" />
+  <div class="image-container">
+    <img [ngSrc]="animal.image" [alt]="animal.name" class="animal-image" fill />
+  </div>
   <p class="animal-name">{{ animal.name }}</p>
   <p class="animal-description">{{ animal.description }}</p>
   <div class="animal-type-age" [ngClass]="adoptPageStyle">

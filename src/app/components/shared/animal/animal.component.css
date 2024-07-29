@@ -14,9 +14,13 @@
   background-color: #ffffff;
 }
 
-.animal-image {
+.image-container {
+  position: relative;
   height: 200px;
   width: 100%;
+}
+
+.animal-image {
   object-fit: cover;
   border: 1px solid #9f9494;
 }

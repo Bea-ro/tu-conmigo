@@ -44,6 +44,10 @@ label {
   padding: 0.5rem;
 }
 
+.input-error {
+  border: 1px solid #b61717;
+}
+
 .checkbox-field {
   display: inline;
   padding: 28px 0;

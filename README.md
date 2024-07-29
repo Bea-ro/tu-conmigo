@@ -1,14 +1,11 @@
-# TuConmigo
+## Skills
 
-Rutas aplicando lazy load. Una de las rutas incluye parámetro id
-Formulario usando ReactiveForms con validador personalizado para DNI
-Servicio para recuperar datos de animales en adopción
-Componente shared
+### Angular, TypeScript y CSS
 
-NOTA: no se ha configurado persistencia al recargar
-Figma: https://www.figma.com/file/werALaWJBvdJFezzM8xnyu/Refugio-de-animales?type=design&node-id=0%3A1&mode=des
+- Rutas aplicando **lazy load**. Una de las rutas incluye parámetro id.
+- **Servicio para recuperar datos** de animales en adopción.
+- **Componente shared** "animal".
+- Formulario usando **ReactiveForms** con **validador personalizado** para DNI.
 
-## Confirmar
-
-Rutas aplicando lazy load: home no, no?
-Models y services dentro de app y assets fuera
+NOTA: la práctica indica no configurar persistencia al recargar.
+La práctica sugiere seguir el diseño de Figma: https://www.figma.com/file/werALaWJBvdJFezzM8xnyu/Refugio-de-animales?type=design&node-id=0%3A1&mode=des

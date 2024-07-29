@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AnimalComponent } from '../../components/shared/animal/animal.component';
 import { Animal } from '../../models/animal';
-import { AnimalsService } from '../../animals.service';
+import { AnimalsService } from '../../services/animals.service';
 
 @Component({
   selector: 'app-home',

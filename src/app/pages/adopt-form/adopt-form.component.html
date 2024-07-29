@@ -1,3 +1,4 @@
+<!-- Si al enviar el formulario no se navegase al listado de animales como requiere la práctica, se mostraría este mensaje en la misma página del formulario. -->
 <ng-template #formsubmitted
   ><p class="form-container">
     Gracias por tu solicitud. En breve, nos pondremos en contacto contigo.
@@ -18,8 +19,12 @@
           type="text"
           id="name"
           formControlName="name"
-          class="text-input"
           placeholder="Escribe tu nombre"
+          class="text-input"
+          [ngClass]="{
+            'input-error':
+              userForm.get('name')?.invalid && userForm.get('name')?.touched
+          }"
         />
         <p
           *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched"
@@ -34,8 +39,13 @@
           type="text"
           id="surname"
           formControlName="surname"
-          class="text-input"
           placeholder="Escribe tus apellidos"
+          class="text-input"
+          [ngClass]="{
+            'input-error':
+              userForm.get('surname')?.invalid &&
+              userForm.get('surname')?.touched
+          }"
         />
         <p
           *ngIf="
@@ -52,14 +62,24 @@
           type="text"
           id="dni"
           formControlName="dni"
-          class="text-input"
           placeholder="Introduce tu DNI"
+          class="text-input"
+          [ngClass]="{
+            'input-error':
+              userForm.get('dni')?.invalid && userForm.get('dni')?.touched
+          }"
         />
         <p
           *ngIf="userForm.get('dni')?.errors?.['invalidDni']"
           class="error-message"
         >
           El formato del DNI no es válido
+        </p>
+        <p
+          *ngIf="userForm.get('dni')?.errors?.['required'] && userForm.get('dni')?.touched"
+          class="error-message"
+        >
+          Este campo es obligatorio
         </p>
       </fieldset>
       <fieldset>
@@ -69,7 +89,10 @@
           id="age"
           formControlName="age"
           class="text-input"
-          c
+          [ngClass]="{
+            'input-error':
+              userForm.get('age')?.invalid && userForm.get('age')?.touched
+          }"
         />
         <p
           *ngIf="!userForm.get('age')?.value && userForm.get('age')?.touched"

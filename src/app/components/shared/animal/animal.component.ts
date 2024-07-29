@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Animal } from '../../../models/animal';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-animal',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, NgOptimizedImage],
   templateUrl: './animal.component.html',
   styleUrl: './animal.component.css',
 })

@@ -8,10 +8,10 @@ import {
 } from '@angular/forms';
 import { User } from '../../models/user';
 import { dnilValidator } from './customValidarors';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AnimalComponent } from '../../components/shared/animal/animal.component';
 import { Animal } from '../../models/animal';
-import { AnimalsService } from '../../animals.service';
+import { AnimalsService } from '../../services/animals.service';
 
 @Component({
   selector: 'app-adopt-form',
@@ -31,7 +31,8 @@ export class AdoptFormComponent implements OnInit {
 
   constructor(
     private AnimalsService: AnimalsService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   public ngOnInit() {
@@ -96,5 +97,6 @@ export class AdoptFormComponent implements OnInit {
   public onSumbit() {
     this.AnimalsService.adoptAnimal(this.animalId);
     this.isSubmitted = true;
+    this.router.navigate(['/animales-para-adoptar']);
   }
 }
