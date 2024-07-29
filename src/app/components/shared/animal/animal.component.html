@@ -1,6 +1,14 @@
 <div *ngIf="animal" [ngClass]="animalStyle">
   <div class="image-container">
-    <img [ngSrc]="animal.image" [alt]="animal.name" class="animal-image" fill />
+    <img
+      [ngSrc]="animal.image"
+      [alt]="animal.name"
+      class="animal-image"
+      fill
+      [priority]="
+        animal.name === 'Bella' || animal.name === 'Max' ? true : false
+      "
+    />
   </div>
   <p class="animal-name">{{ animal.name }}</p>
   <p class="animal-description">{{ animal.description }}</p>
