@@ -6,7 +6,7 @@ export const routes: Routes = [
     path: '',
     loadComponent: () =>
       import('./pages/home/home.component').then((c) => c.HomeComponent),
-    title: 'Home Page',
+    title: 'Tú conmigo',
   },
   {
     path: 'animales-para-adoptar',
